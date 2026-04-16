@@ -153,7 +153,7 @@ function Index() {
                         width: layer.width,
                         background: `linear-gradient(90deg, ${layer.color} / 20%, ${layer.color} / 8%)`,
                         border: `1px solid ${layer.color} / 25%`,
-                        marginLeft: `${i * 5 + 2}%`,
+                        marginLeft: `${layer.ml}%`,
                       }}
                       animate={{ opacity: [0.6, 1, 0.6] }}
                       transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}

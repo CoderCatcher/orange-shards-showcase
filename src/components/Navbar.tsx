@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../hooks/use-theme";
 
 const navLinks = [
   { label: "Work", href: "#work" },
@@ -11,6 +12,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isDark, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -31,10 +33,8 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-2.5">
-          {/* Y + Play button geometric symbol */}
           <div className="relative flex h-9 w-9 items-center justify-center">
             <svg viewBox="0 0 36 36" fill="none" className="h-9 w-9" aria-hidden="true">
-              {/* Outer glow */}
               <defs>
                 <filter id="orangeGlow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="2" result="blur" />
@@ -44,20 +44,18 @@ export default function Navbar() {
                   </feMerge>
                 </filter>
               </defs>
-              {/* Y shape merged with play arrow */}
               <path
                 d="M10 6 L18 16 L26 6 L22 6 L18 12 L14 6 Z"
-                fill="white"
-                stroke="white"
+                fill="currentColor"
+                stroke="currentColor"
                 strokeWidth="0.5"
                 filter="url(#orangeGlow)"
               />
               <path
                 d="M16 14 L16 28 L20 28 L20 14 Z"
-                fill="white"
+                fill="currentColor"
                 filter="url(#orangeGlow)"
               />
-              {/* Play triangle overlay */}
               <path
                 d="M14 20 L14 30 L26 25 Z"
                 fill="#FF5F1F"
@@ -82,6 +80,24 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
+          {/* Dark/Light toggle */}
+          <button
+            onClick={toggle}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            ) : (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            )}
+          </button>
+
           <a
             href="mailto:yashjain.vis@gmail.com"
             className="rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90 glow-orange"
@@ -90,13 +106,30 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
-        >
-          <span className={`block h-0.5 w-5 bg-foreground transition-all ${menuOpen ? "translate-y-1 rotate-45" : ""}`} />
-          <span className={`block h-0.5 w-5 bg-foreground transition-all ${menuOpen ? "-translate-y-1 -rotate-45" : ""}`} />
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <button
+            onClick={toggle}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            ) : (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            )}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1.5"
+          >
+            <span className={`block h-0.5 w-5 bg-foreground transition-all ${menuOpen ? "translate-y-1 rotate-45" : ""}`} />
+            <span className={`block h-0.5 w-5 bg-foreground transition-all ${menuOpen ? "-translate-y-1 -rotate-45" : ""}`} />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
