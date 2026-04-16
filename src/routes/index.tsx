@@ -126,12 +126,16 @@ function Index() {
               </motion.div>
 
               {[
-                { name: "🎬 Main_Edit", color: "oklch(0.65 0.22 38)", width: "70%" },
-                { name: "🔤 Title_Text", color: "oklch(0.75 0.2 45)", width: "30%" },
-                { name: "🔊 Audio_Mix", color: "oklch(0.65 0.18 150)", width: "85%" },
-                { name: "✨ Particles", color: "oklch(0.65 0.22 38)", width: "45%" },
-                { name: "📐 Shape_Layer", color: "oklch(0.7 0.15 30)", width: "55%" },
-                { name: "🌈 Adjustment", color: "oklch(0.75 0.2 45)", width: "60%" },
+                { name: "🎬 Main_Edit_v3", color: "oklch(0.65 0.22 38)", width: "78%", ml: 2 },
+                { name: "🔤 Title_Sequence", color: "oklch(0.75 0.2 45)", width: "35%", ml: 15 },
+                { name: "🔊 Audio_Master", color: "oklch(0.65 0.18 150)", width: "90%", ml: 0 },
+                { name: "✨ Particles_FX", color: "oklch(0.65 0.22 38)", width: "50%", ml: 20 },
+                { name: "📐 Shape_Layers", color: "oklch(0.7 0.15 30)", width: "62%", ml: 8 },
+                { name: "🎨 Color_Grade", color: "oklch(0.75 0.2 45)", width: "85%", ml: 3 },
+                { name: "🔀 Transitions", color: "oklch(0.65 0.22 38)", width: "28%", ml: 35 },
+                { name: "📷 B-Roll_Cuts", color: "oklch(0.7 0.18 60)", width: "55%", ml: 12 },
+                { name: "💬 Subtitles", color: "oklch(0.65 0.15 180)", width: "72%", ml: 5 },
+                { name: "🎵 SFX_Layer", color: "oklch(0.7 0.2 45)", width: "40%", ml: 25 },
               ].map((layer, i) => (
                 <div key={layer.name} className="flex h-[24px] border-b border-border">
                   <div className="w-[180px] shrink-0 bg-secondary flex items-center px-2 gap-1.5 border-r border-border">
@@ -149,7 +153,7 @@ function Index() {
                         width: layer.width,
                         background: `linear-gradient(90deg, ${layer.color} / 20%, ${layer.color} / 8%)`,
                         border: `1px solid ${layer.color} / 25%`,
-                        marginLeft: `${i * 5 + 2}%`,
+                        marginLeft: `${layer.ml}%`,
                       }}
                       animate={{ opacity: [0.6, 1, 0.6] }}
                       transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
