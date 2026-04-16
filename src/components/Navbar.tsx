@@ -30,8 +30,46 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="font-display text-xl font-bold tracking-tight text-foreground">
-          YASH<span className="text-gradient-orange">JAIN</span>
+        <a href="#" className="flex items-center gap-2.5">
+          {/* Y + Play button geometric symbol */}
+          <div className="relative flex h-9 w-9 items-center justify-center">
+            <svg viewBox="0 0 36 36" fill="none" className="h-9 w-9" aria-hidden="true">
+              {/* Outer glow */}
+              <defs>
+                <filter id="orangeGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="2" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              {/* Y shape merged with play arrow */}
+              <path
+                d="M10 6 L18 16 L26 6 L22 6 L18 12 L14 6 Z"
+                fill="white"
+                stroke="white"
+                strokeWidth="0.5"
+                filter="url(#orangeGlow)"
+              />
+              <path
+                d="M16 14 L16 28 L20 28 L20 14 Z"
+                fill="white"
+                filter="url(#orangeGlow)"
+              />
+              {/* Play triangle overlay */}
+              <path
+                d="M14 20 L14 30 L26 25 Z"
+                fill="#FF5F1F"
+                filter="url(#orangeGlow)"
+                opacity="0.95"
+              />
+            </svg>
+          </div>
+          <span className="font-display text-sm font-bold tracking-tight text-foreground leading-tight">
+            YASH JAIN<br />
+            <span className="text-[0.6rem] font-medium tracking-[0.15em] text-muted-foreground">PORTFOLIO</span>
+          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

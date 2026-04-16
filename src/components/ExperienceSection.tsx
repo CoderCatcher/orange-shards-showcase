@@ -10,9 +10,9 @@ const clients = [
 
 const stats = [
   { value: "5+", label: "Years Editing" },
-  { value: "50+", label: "Creators Served" },
-  { value: "500+", label: "Videos Delivered" },
-  { value: "24h", label: "Fastest Turnaround" },
+  { value: "200+", label: "Creators Served" },
+  { value: "1500+", label: "Videos Delivered" },
+  { value: "12h", label: "Fastest Turnaround" },
 ];
 
 export default function ExperienceSection() {
