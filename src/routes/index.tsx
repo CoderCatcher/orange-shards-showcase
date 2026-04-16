@@ -43,12 +43,12 @@ function Index() {
               Video Editor · Motion Designer · Content Strategist
             </p>
             <h1 className="font-display text-6xl font-bold tracking-tight text-foreground md:text-8xl lg:text-9xl">
-              CUTTING
+              FRAME
               <br />
-              <span className="text-gradient-orange">EDGE</span>
+              <span className="text-gradient-orange">PERFECT</span>
             </h1>
             <p className="mx-auto mt-6 max-w-lg text-lg text-muted-foreground">
-              High-retention edits that keep viewers hooked.
+              5+ years crafting high-retention edits for 200+ creators.
               YouTube · Shorts · Gaming · Motion Design
             </p>
           </motion.div>
