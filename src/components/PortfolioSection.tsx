@@ -78,10 +78,10 @@ export default function PortfolioSection() {
         >
           <p className="mb-3 font-mono text-sm tracking-widest text-primary uppercase">Portfolio</p>
           <h2 className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Selected Work
+            5+ Years of Edits
           </h2>
           <p className="mt-4 max-w-xl text-muted-foreground">
-            From viral shorts to cinematic long-form — every edit is crafted for maximum retention and impact.
+            Half a decade of crafting viral shorts, cinematic long-form, and everything in between — every frame built for retention.
           </p>
         </motion.div>
 
