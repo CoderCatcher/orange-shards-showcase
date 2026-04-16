@@ -42,7 +42,7 @@ function Index() {
           </div>
 
           {/* Left panel - Project */}
-          <div className="absolute top-8 left-0 w-[220px] bottom-[200px] bg-background border-r border-border">
+          <div className="absolute top-8 left-0 w-[220px] bottom-[260px] bg-background border-r border-border">
             <div className="h-6 bg-secondary border-b border-border flex items-center px-2">
               <span className="font-mono text-[8px] text-muted-foreground tracking-wider uppercase">Project</span>
             </div>
@@ -59,7 +59,7 @@ function Index() {
           </div>
 
           {/* Center - Composition viewer */}
-          <div className="absolute top-8 left-[220px] right-[260px] bottom-[200px] bg-secondary/50 border-r border-border">
+          <div className="absolute top-8 left-[220px] right-[260px] bottom-[260px] bg-secondary/50 border-r border-border">
             <div className="absolute top-0 left-0 right-0 h-6 bg-background border-b border-border flex items-center px-2 gap-3">
               <span className="font-mono text-[8px] text-foreground">Main_Comp_v3</span>
               <span className="font-mono text-[8px] text-muted-foreground">1920×1080</span>
@@ -69,7 +69,7 @@ function Index() {
           </div>
 
           {/* Right panel - Effect Controls */}
-          <div className="absolute top-8 right-0 w-[260px] bottom-[200px] bg-background border-l border-border">
+          <div className="absolute top-8 right-0 w-[260px] bottom-[260px] bg-background border-l border-border">
             <div className="h-6 bg-secondary border-b border-border flex items-center px-2">
               <span className="font-mono text-[8px] text-muted-foreground tracking-wider uppercase">Effect Controls</span>
             </div>
@@ -92,7 +92,7 @@ function Index() {
           </div>
 
           {/* Bottom - Timeline */}
-          <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-background border-t border-border">
+          <div className="absolute bottom-0 left-0 right-0 h-[260px] bg-background border-t border-border">
             <div className="h-5 bg-secondary border-b border-border flex items-center px-2 gap-4">
               <span className="font-mono text-[8px] text-muted-foreground">Timeline</span>
               <div className="flex gap-2">
@@ -100,72 +100,114 @@ function Index() {
                   <span key={btn} className="text-[10px] text-muted-foreground">{btn}</span>
                 ))}
               </div>
+              <div className="flex items-center gap-2 ml-4">
+                <span className="font-mono text-[7px] text-muted-foreground/60">Snapping</span>
+                <div className="h-2 w-2 rounded-sm bg-primary/60" />
+              </div>
               <span className="font-mono text-[8px] text-primary ml-auto">00:00:12:15</span>
+              <span className="font-mono text-[7px] text-muted-foreground ml-2">/ 00:02:34:00</span>
             </div>
 
             {/* Timeline ruler */}
-            <div className="h-4 bg-secondary/50 border-b border-border flex items-end px-[180px]">
-              {Array.from({ length: 20 }).map((_, i) => (
+            <div className="h-4 bg-secondary/50 border-b border-border flex items-end px-[160px]">
+              {Array.from({ length: 30 }).map((_, i) => (
                 <div key={i} className="flex-1 flex flex-col items-start">
-                  <span className="font-mono text-[6px] text-muted-foreground/50">{i}s</span>
-                  <div className="w-px h-1.5 bg-border" />
+                  {i % 5 === 0 ? (
+                    <>
+                      <span className="font-mono text-[6px] text-muted-foreground/60">{Math.floor(i / 2)}:{(i % 2) * 30 === 0 ? "00" : "30"}</span>
+                      <div className="w-px h-2.5 bg-muted-foreground/30" />
+                    </>
+                  ) : (
+                    <div className="w-px h-1 bg-border" />
+                  )}
                 </div>
               ))}
             </div>
 
             {/* Layer tracks */}
-            <div className="relative">
+            <div className="relative overflow-hidden" style={{ height: "calc(100% - 36px)" }}>
               {/* Playhead */}
               <motion.div
                 className="absolute top-0 bottom-0 w-[2px] bg-primary z-10"
-                style={{ boxShadow: "0 0 8px oklch(0.65 0.22 38 / 50%)" }}
-                animate={{ left: ["calc(180px + 15%)", "calc(180px + 75%)", "calc(180px + 15%)"] }}
-                transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+                style={{ boxShadow: "0 0 10px oklch(0.65 0.22 38 / 60%)" }}
+                animate={{ left: ["calc(160px + 15%)", "calc(160px + 80%)", "calc(160px + 15%)"] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
               >
                 <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[5px] border-l-transparent border-r-transparent border-t-primary" />
               </motion.div>
 
               {[
-                { name: "🎬 Main_Edit_v3", color: "oklch(0.65 0.22 38)", width: "78%", ml: 2 },
-                { name: "🔤 Title_Sequence", color: "oklch(0.75 0.2 45)", width: "35%", ml: 15 },
-                { name: "🔊 Audio_Master", color: "oklch(0.65 0.18 150)", width: "90%", ml: 0 },
-                { name: "✨ Particles_FX", color: "oklch(0.65 0.22 38)", width: "50%", ml: 20 },
-                { name: "📐 Shape_Layers", color: "oklch(0.7 0.15 30)", width: "62%", ml: 8 },
-                { name: "🎨 Color_Grade", color: "oklch(0.75 0.2 45)", width: "85%", ml: 3 },
-                { name: "🔀 Transitions", color: "oklch(0.65 0.22 38)", width: "28%", ml: 35 },
-                { name: "📷 B-Roll_Cuts", color: "oklch(0.7 0.18 60)", width: "55%", ml: 12 },
-                { name: "💬 Subtitles", color: "oklch(0.65 0.15 180)", width: "72%", ml: 5 },
-                { name: "🎵 SFX_Layer", color: "oklch(0.7 0.2 45)", width: "40%", ml: 25 },
+                { name: "V1  🎬 Main_Edit_v3", color: "#FF5F1F", clips: [{ w: "30%", ml: "0%" }, { w: "25%", ml: "32%" }, { w: "18%", ml: "60%" }, { w: "15%", ml: "82%" }] },
+                { name: "V2  🔤 Titles_Lower3rd", color: "#E8912D", clips: [{ w: "12%", ml: "5%" }, { w: "8%", ml: "22%" }, { w: "15%", ml: "45%" }, { w: "10%", ml: "75%" }] },
+                { name: "V3  ✨ Effects_Comp", color: "#FF8C42", clips: [{ w: "20%", ml: "10%" }, { w: "35%", ml: "38%" }, { w: "12%", ml: "80%" }] },
+                { name: "V4  📐 Shape_Layers", color: "#D4622B", clips: [{ w: "45%", ml: "2%" }, { w: "28%", ml: "55%" }] },
+                { name: "V5  🎨 Adjustment", color: "#C75B24", clips: [{ w: "95%", ml: "1%" }] },
+                { name: "V6  📷 B-Roll", color: "#FF6B35", clips: [{ w: "18%", ml: "0%" }, { w: "14%", ml: "20%" }, { w: "22%", ml: "36%" }, { w: "10%", ml: "62%" }, { w: "20%", ml: "76%" }] },
+                { name: "V7  💬 Subtitles", color: "#E07830", clips: [{ w: "88%", ml: "5%" }] },
+                { name: "V8  🔀 Transitions", color: "#CC6A2E", clips: [{ w: "4%", ml: "29%" }, { w: "4%", ml: "56%" }, { w: "4%", ml: "77%" }] },
+                { name: "A1  🔊 Dialogue", color: "#4CAF50", clips: [{ w: "28%", ml: "1%" }, { w: "22%", ml: "32%" }, { w: "30%", ml: "58%" }] },
+                { name: "A2  🎵 Music_Bed", color: "#2E7D32", clips: [{ w: "96%", ml: "0%" }] },
+                { name: "A3  🔔 SFX", color: "#66BB6A", clips: [{ w: "3%", ml: "8%" }, { w: "2%", ml: "18%" }, { w: "5%", ml: "30%" }, { w: "3%", ml: "42%" }, { w: "4%", ml: "55%" }, { w: "2%", ml: "68%" }, { w: "3%", ml: "80%" }, { w: "2%", ml: "90%" }] },
+                { name: "A4  🎤 Voiceover", color: "#388E3C", clips: [{ w: "40%", ml: "10%" }, { w: "30%", ml: "58%" }] },
               ].map((layer, i) => (
-                <div key={layer.name} className="flex h-[24px] border-b border-border">
-                  <div className="w-[180px] shrink-0 bg-secondary flex items-center px-2 gap-1.5 border-r border-border">
-                    <div className="h-2 w-2 rounded-sm" style={{ background: layer.color }} />
-                    <span className="font-mono text-[8px] text-muted-foreground truncate">{layer.name}</span>
-                    <div className="ml-auto flex gap-1">
-                      <div className="h-2 w-2 rounded-full border border-border" />
-                      <div className="h-2 w-2 rounded-full border border-border bg-muted-foreground/20" />
+                <div key={layer.name} className="flex h-[18px] border-b border-border/50">
+                  <div className="w-[160px] shrink-0 bg-secondary/80 flex items-center px-1.5 gap-1 border-r border-border">
+                    <div className="h-1.5 w-1.5 rounded-[2px]" style={{ background: layer.color }} />
+                    <span className="font-mono text-[7px] text-muted-foreground truncate">{layer.name}</span>
+                    <div className="ml-auto flex gap-0.5">
+                      <div className="h-1.5 w-1.5 rounded-full border border-border/60" />
+                      <div className="h-[5px] w-[5px] rounded-[1px] border border-border/60 flex items-center justify-center">
+                        <span className="text-[4px] text-muted-foreground/40">M</span>
+                      </div>
+                      <div className="h-[5px] w-[5px] rounded-[1px] border border-border/60 flex items-center justify-center">
+                        <span className="text-[4px] text-muted-foreground/40">S</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex-1 bg-secondary/30 relative px-1 flex items-center">
-                    <motion.div
-                      className="h-[16px] rounded-sm"
-                      style={{
-                        width: layer.width,
-                        background: `linear-gradient(90deg, ${layer.color} / 20%, ${layer.color} / 8%)`,
-                        border: `1px solid ${layer.color} / 25%`,
-                        marginLeft: `${layer.ml}%`,
-                      }}
-                      animate={{ opacity: [0.6, 1, 0.6] }}
-                      transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
-                    />
+                  <div className="flex-1 bg-secondary/20 relative flex items-center">
+                    {layer.clips.map((clip, ci) => (
+                      <motion.div
+                        key={ci}
+                        className="absolute h-[14px] rounded-[2px]"
+                        style={{
+                          width: clip.w,
+                          left: `calc(${clip.ml})`,
+                          background: `linear-gradient(180deg, ${layer.color}55, ${layer.color}30)`,
+                          borderTop: `1px solid ${layer.color}88`,
+                          borderBottom: `1px solid ${layer.color}22`,
+                          borderLeft: `1px solid ${layer.color}66`,
+                          borderRight: `1px solid ${layer.color}66`,
+                        }}
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: (i * 0.2 + ci * 0.5) % 3 }}
+                      >
+                        {/* Clip handle edges */}
+                        <div className="absolute left-0 top-0 bottom-0 w-[2px] rounded-l-[2px]" style={{ background: `${layer.color}aa` }} />
+                        <div className="absolute right-0 top-0 bottom-0 w-[2px] rounded-r-[2px]" style={{ background: `${layer.color}aa` }} />
+                      </motion.div>
+                    ))}
+                    {/* Keyframe diamonds for some tracks */}
+                    {i < 4 && Array.from({ length: Math.floor(Math.random() * 5) + 2 }).map((_, ki) => (
+                      <div
+                        key={`kf-${ki}`}
+                        className="absolute h-[5px] w-[5px] rotate-45"
+                        style={{
+                          left: `${10 + ki * 18 + (i * 7) % 12}%`,
+                          top: "50%",
+                          transform: "translateY(-50%) rotate(45deg)",
+                          background: layer.color,
+                          opacity: 0.6,
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Vignette overlay to blend into content */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,oklch(0.99_0.001_90_/_40%)_50%,var(--background)_85%)]" />
+          {/* Vignette overlay - adapts to theme */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,var(--background)_/_40%_50%,var(--background)_85%)]" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-4xl text-center">
