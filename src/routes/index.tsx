@@ -243,7 +243,7 @@ function Index() {
               </svg>
             </a>
             <a
-              href="mailto:yashjain.vis@gmail.com"
+              href="mailto:vidiocyhere@gmail.com"
               className="inline-flex items-center gap-2 rounded-full border border-primary/20 px-8 py-3.5 text-sm font-medium text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
             >
               Get in Touch
