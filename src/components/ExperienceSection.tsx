@@ -107,6 +107,43 @@ export default function ExperienceSection() {
           ))}
         </div>
 
+        {/* Views Generated */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <h3 className="mb-8 font-display text-xl font-bold text-foreground">Views Generated</h3>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { platform: "YouTube (Long Form)", views: "100K+", icon: "▶", color: "bg-red-500/10 text-red-500" },
+              { platform: "YouTube (Shorts)", views: "10M+", icon: "▶", color: "bg-red-500/10 text-red-500" },
+              { platform: "Instagram Reels", views: "15M+", icon: "◉", color: "bg-pink-500/10 text-pink-500" },
+              { platform: "Snapchat Spotlight", views: "10M+", icon: "👻", color: "bg-yellow-500/10 text-yellow-400" },
+              { platform: "Facebook", views: "1M+", icon: "f", color: "bg-blue-500/10 text-blue-500" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.platform}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="flex items-center gap-4 rounded-2xl border-glow bg-card px-6 py-5"
+              >
+                <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg font-bold ${item.color}`}>
+                  {item.icon}
+                </div>
+                <div className="flex-1">
+                  <div className="text-sm text-muted-foreground">{item.platform}</div>
+                  <div className="font-display text-2xl font-bold text-gradient-orange">{item.views}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
