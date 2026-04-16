@@ -40,15 +40,15 @@ function Index() {
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             <p className="mb-4 font-mono text-sm tracking-[0.3em] text-primary uppercase">
-              Video Editor · Motion Designer
+              Video Editor · Motion Designer · Content Strategist
             </p>
             <h1 className="font-display text-6xl font-bold tracking-tight text-foreground md:text-8xl lg:text-9xl">
-              YASH
+              CUTTING
               <br />
-              <span className="text-gradient-orange">JAIN</span>
+              <span className="text-gradient-orange">EDGE</span>
             </h1>
             <p className="mx-auto mt-6 max-w-lg text-lg text-muted-foreground">
-              Crafting high-retention content that keeps viewers watching.
+              High-retention edits that keep viewers hooked.
               YouTube · Shorts · Gaming · Motion Design
             </p>
           </motion.div>
