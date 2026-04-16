@@ -28,50 +28,50 @@ function Index() {
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
         {/* After Effects UI background */}
         <div className="absolute inset-0 overflow-hidden select-none pointer-events-none">
-          {/* AE dark workspace */}
-          <div className="absolute inset-0 bg-[#1e1e1e]" />
+          {/* Light workspace background */}
+          <div className="absolute inset-0 bg-secondary" />
 
           {/* Top toolbar */}
-          <div className="absolute top-0 left-0 right-0 h-8 bg-[#2d2d2d] border-b border-[#1a1a1a] flex items-center px-3 gap-4">
+          <div className="absolute top-0 left-0 right-0 h-8 bg-background border-b border-border flex items-center px-3 gap-4">
             <div className="flex gap-1.5">
-              <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-              <div className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-              <div className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+              <div className="h-2.5 w-2.5 rounded-full bg-primary" />
+              <div className="h-2.5 w-2.5 rounded-full bg-orange-glow" />
+              <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
             </div>
-            <span className="font-mono text-[9px] text-[#999] tracking-wide">Adobe After Effects - Yash_Jain_Portfolio.aep</span>
+            <span className="font-mono text-[9px] text-muted-foreground tracking-wide">Adobe After Effects - Yash_Jain_Portfolio.aep</span>
           </div>
 
           {/* Left panel - Project */}
-          <div className="absolute top-8 left-0 w-[220px] bottom-[200px] bg-[#232323] border-r border-[#1a1a1a]">
-            <div className="h-6 bg-[#2d2d2d] border-b border-[#1a1a1a] flex items-center px-2">
-              <span className="font-mono text-[8px] text-[#888] tracking-wider uppercase">Project</span>
+          <div className="absolute top-8 left-0 w-[220px] bottom-[200px] bg-background border-r border-border">
+            <div className="h-6 bg-secondary border-b border-border flex items-center px-2">
+              <span className="font-mono text-[8px] text-muted-foreground tracking-wider uppercase">Project</span>
             </div>
             <div className="p-2 space-y-1">
               {["📁 Comps", "📁 Footage", "📁 Audio", "📁 Graphics", "📁 Exports"].map((item) => (
-                <div key={item} className="font-mono text-[9px] text-[#777] py-0.5 px-1 rounded hover:bg-[#2a2a2a]">{item}</div>
+                <div key={item} className="font-mono text-[9px] text-muted-foreground/70 py-0.5 px-1 rounded hover:bg-secondary">{item}</div>
               ))}
-              <div className="mt-2 border-t border-[#2a2a2a] pt-2 space-y-0.5">
+              <div className="mt-2 border-t border-border pt-2 space-y-0.5">
                 {["▶ Main_Comp_v3", "▶ Intro_Animation", "▶ Lower_Third", "▶ Outro_Sequence", "▶ Transitions_Pack"].map((item) => (
-                  <div key={item} className="font-mono text-[9px] text-[#9a8aff] py-0.5 px-1">{item}</div>
+                  <div key={item} className="font-mono text-[9px] text-primary py-0.5 px-1">{item}</div>
                 ))}
               </div>
             </div>
           </div>
 
           {/* Center - Composition viewer */}
-          <div className="absolute top-8 left-[220px] right-[260px] bottom-[200px] bg-[#191919] border-r border-[#1a1a1a]">
-            <div className="absolute top-0 left-0 right-0 h-6 bg-[#2d2d2d] border-b border-[#1a1a1a] flex items-center px-2 gap-3">
-              <span className="font-mono text-[8px] text-[#ccc]">Main_Comp_v3</span>
-              <span className="font-mono text-[8px] text-[#555]">1920×1080</span>
-              <span className="font-mono text-[8px] text-[#555]">29.97fps</span>
+          <div className="absolute top-8 left-[220px] right-[260px] bottom-[200px] bg-secondary/50 border-r border-border">
+            <div className="absolute top-0 left-0 right-0 h-6 bg-background border-b border-border flex items-center px-2 gap-3">
+              <span className="font-mono text-[8px] text-foreground">Main_Comp_v3</span>
+              <span className="font-mono text-[8px] text-muted-foreground">1920×1080</span>
+              <span className="font-mono text-[8px] text-muted-foreground">29.97fps</span>
             </div>
-            <div className="absolute inset-6 opacity-[0.03] bg-[repeating-conic-gradient(#fff_0%_25%,transparent_0%_50%)] bg-[length:20px_20px]" />
+            <div className="absolute inset-6 opacity-[0.04] bg-[repeating-conic-gradient(var(--foreground)_0%_25%,transparent_0%_50%)] bg-[length:20px_20px]" />
           </div>
 
           {/* Right panel - Effect Controls */}
-          <div className="absolute top-8 right-0 w-[260px] bottom-[200px] bg-[#232323] border-l border-[#1a1a1a]">
-            <div className="h-6 bg-[#2d2d2d] border-b border-[#1a1a1a] flex items-center px-2">
-              <span className="font-mono text-[8px] text-[#888] tracking-wider uppercase">Effect Controls</span>
+          <div className="absolute top-8 right-0 w-[260px] bottom-[200px] bg-background border-l border-border">
+            <div className="h-6 bg-secondary border-b border-border flex items-center px-2">
+              <span className="font-mono text-[8px] text-muted-foreground tracking-wider uppercase">Effect Controls</span>
             </div>
             <div className="p-2 space-y-2">
               {[
@@ -80,11 +80,11 @@ function Index() {
                 { name: "Turbulent Displace", props: ["Amount: 50", "Size: 12", "Complexity: 3"] },
               ].map((fx) => (
                 <div key={fx.name}>
-                  <div className="font-mono text-[9px] text-[#FF5F1F] mb-1 flex items-center gap-1">
+                  <div className="font-mono text-[9px] text-primary mb-1 flex items-center gap-1">
                     <span className="text-[8px]">fx</span> {fx.name}
                   </div>
                   {fx.props.map((p) => (
-                    <div key={p} className="font-mono text-[8px] text-[#666] pl-3 py-px">{p}</div>
+                    <div key={p} className="font-mono text-[8px] text-muted-foreground pl-3 py-px">{p}</div>
                   ))}
                 </div>
               ))}
@@ -92,23 +92,23 @@ function Index() {
           </div>
 
           {/* Bottom - Timeline */}
-          <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-[#232323] border-t border-[#1a1a1a]">
-            <div className="h-5 bg-[#2d2d2d] border-b border-[#1a1a1a] flex items-center px-2 gap-4">
-              <span className="font-mono text-[8px] text-[#888]">Timeline</span>
+          <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-background border-t border-border">
+            <div className="h-5 bg-secondary border-b border-border flex items-center px-2 gap-4">
+              <span className="font-mono text-[8px] text-muted-foreground">Timeline</span>
               <div className="flex gap-2">
                 {["⏮", "◀", "▶", "⏭"].map((btn) => (
-                  <span key={btn} className="text-[10px] text-[#777]">{btn}</span>
+                  <span key={btn} className="text-[10px] text-muted-foreground">{btn}</span>
                 ))}
               </div>
               <span className="font-mono text-[8px] text-primary ml-auto">00:00:12:15</span>
             </div>
 
             {/* Timeline ruler */}
-            <div className="h-4 bg-[#1e1e1e] border-b border-[#2a2a2a] flex items-end px-[180px]">
+            <div className="h-4 bg-secondary/50 border-b border-border flex items-end px-[180px]">
               {Array.from({ length: 20 }).map((_, i) => (
                 <div key={i} className="flex-1 flex flex-col items-start">
-                  <span className="font-mono text-[6px] text-[#555]">{i}s</span>
-                  <div className="w-px h-1.5 bg-[#444]" />
+                  <span className="font-mono text-[6px] text-muted-foreground/50">{i}s</span>
+                  <div className="w-px h-1.5 bg-border" />
                 </div>
               ))}
             </div>
@@ -118,7 +118,7 @@ function Index() {
               {/* Playhead */}
               <motion.div
                 className="absolute top-0 bottom-0 w-[2px] bg-primary z-10"
-                style={{ boxShadow: "0 0 8px rgba(255,95,31,0.5)" }}
+                style={{ boxShadow: "0 0 8px oklch(0.65 0.22 38 / 50%)" }}
                 animate={{ left: ["calc(180px + 15%)", "calc(180px + 75%)", "calc(180px + 15%)"] }}
                 transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -126,29 +126,29 @@ function Index() {
               </motion.div>
 
               {[
-                { name: "🎬 Main_Edit", color: "#7b61ff", width: "70%" },
-                { name: "🔤 Title_Text", color: "#FF5F1F", width: "30%" },
-                { name: "🔊 Audio_Mix", color: "#28c840", width: "85%" },
-                { name: "✨ Particles", color: "#febc2e", width: "45%" },
-                { name: "📐 Shape_Layer", color: "#ff5f97", width: "55%" },
-                { name: "🌈 Adjustment", color: "#5fcfff", width: "60%" },
+                { name: "🎬 Main_Edit", color: "oklch(0.65 0.22 38)", width: "70%" },
+                { name: "🔤 Title_Text", color: "oklch(0.75 0.2 45)", width: "30%" },
+                { name: "🔊 Audio_Mix", color: "oklch(0.65 0.18 150)", width: "85%" },
+                { name: "✨ Particles", color: "oklch(0.65 0.22 38)", width: "45%" },
+                { name: "📐 Shape_Layer", color: "oklch(0.7 0.15 30)", width: "55%" },
+                { name: "🌈 Adjustment", color: "oklch(0.75 0.2 45)", width: "60%" },
               ].map((layer, i) => (
-                <div key={layer.name} className="flex h-[24px] border-b border-[#1e1e1e]">
-                  <div className="w-[180px] shrink-0 bg-[#282828] flex items-center px-2 gap-1.5 border-r border-[#1e1e1e]">
+                <div key={layer.name} className="flex h-[24px] border-b border-border">
+                  <div className="w-[180px] shrink-0 bg-secondary flex items-center px-2 gap-1.5 border-r border-border">
                     <div className="h-2 w-2 rounded-sm" style={{ background: layer.color }} />
-                    <span className="font-mono text-[8px] text-[#aaa] truncate">{layer.name}</span>
+                    <span className="font-mono text-[8px] text-muted-foreground truncate">{layer.name}</span>
                     <div className="ml-auto flex gap-1">
-                      <div className="h-2 w-2 rounded-full border border-[#555]" />
-                      <div className="h-2 w-2 rounded-full border border-[#555] bg-[#555]" />
+                      <div className="h-2 w-2 rounded-full border border-border" />
+                      <div className="h-2 w-2 rounded-full border border-border bg-muted-foreground/20" />
                     </div>
                   </div>
-                  <div className="flex-1 bg-[#1e1e1e] relative px-1 flex items-center">
+                  <div className="flex-1 bg-secondary/30 relative px-1 flex items-center">
                     <motion.div
                       className="h-[16px] rounded-sm"
                       style={{
                         width: layer.width,
-                        background: `linear-gradient(90deg, ${layer.color}44, ${layer.color}22)`,
-                        border: `1px solid ${layer.color}55`,
+                        background: `linear-gradient(90deg, ${layer.color} / 20%, ${layer.color} / 8%)`,
+                        border: `1px solid ${layer.color} / 25%`,
                         marginLeft: `${i * 5 + 2}%`,
                       }}
                       animate={{ opacity: [0.6, 1, 0.6] }}
@@ -161,7 +161,7 @@ function Index() {
           </div>
 
           {/* Vignette overlay to blend into content */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,rgba(0,0,0,0.4)_50%,var(--background)_85%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,oklch(0.99_0.001_90_/_40%)_50%,var(--background)_85%)]" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-4xl text-center">
