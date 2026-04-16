@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "src": "/_vercel/insights/.*",
+      "dest": "/_vercel/insights/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
