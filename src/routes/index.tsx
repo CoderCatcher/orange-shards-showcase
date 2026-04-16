@@ -31,8 +31,8 @@ function Index() {
           {/* Light workspace background */}
           <div className="absolute inset-0 bg-secondary" />
 
-          {/* Top toolbar */}
-          <div className="absolute top-0 left-0 right-0 h-8 bg-background border-b border-border flex items-center px-3 gap-4">
+          {/* Top toolbar - pushed below navbar */}
+          <div className="absolute top-16 left-0 right-0 h-8 bg-background border-b border-border flex items-center px-3 gap-4">
             <div className="flex gap-1.5">
               <div className="h-2.5 w-2.5 rounded-full bg-primary" />
               <div className="h-2.5 w-2.5 rounded-full bg-orange-glow" />
@@ -42,7 +42,7 @@ function Index() {
           </div>
 
           {/* Left panel - Project */}
-          <div className="absolute top-8 left-0 w-[220px] bottom-[260px] bg-background border-r border-border">
+          <div className="absolute top-[88px] left-0 w-[220px] bottom-[260px] bg-background border-r border-border">
             <div className="h-6 bg-secondary border-b border-border flex items-center px-2">
               <span className="font-mono text-[8px] text-muted-foreground tracking-wider uppercase">Project</span>
             </div>
@@ -59,7 +59,7 @@ function Index() {
           </div>
 
           {/* Center - Composition viewer */}
-          <div className="absolute top-8 left-[220px] right-[260px] bottom-[260px] bg-secondary/50 border-r border-border">
+          <div className="absolute top-[88px] left-[220px] right-[260px] bottom-[260px] bg-secondary/50 border-r border-border">
             <div className="absolute top-0 left-0 right-0 h-6 bg-background border-b border-border flex items-center px-2 gap-3">
               <span className="font-mono text-[8px] text-foreground">Main_Comp_v3</span>
               <span className="font-mono text-[8px] text-muted-foreground">1920×1080</span>
@@ -69,7 +69,7 @@ function Index() {
           </div>
 
           {/* Right panel - Effect Controls */}
-          <div className="absolute top-8 right-0 w-[260px] bottom-[260px] bg-background border-l border-border">
+          <div className="absolute top-[88px] right-0 w-[260px] bottom-[260px] bg-background border-l border-border">
             <div className="h-6 bg-secondary border-b border-border flex items-center px-2">
               <span className="font-mono text-[8px] text-muted-foreground tracking-wider uppercase">Effect Controls</span>
             </div>
@@ -187,7 +187,7 @@ function Index() {
                       </motion.div>
                     ))}
                     {/* Keyframe diamonds for some tracks */}
-                    {i < 4 && Array.from({ length: Math.floor(Math.random() * 5) + 2 }).map((_, ki) => (
+                    {i < 4 && Array.from({ length: [4, 3, 5, 2][i] }).map((_, ki) => (
                       <div
                         key={`kf-${ki}`}
                         className="absolute h-[5px] w-[5px] rotate-45"
